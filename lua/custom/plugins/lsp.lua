@@ -46,6 +46,9 @@ return {
           },
         },
       },
+      -- Zig
+      zls = {
+      },
       -- Lua
       lua_ls = {
         server_capabilities = {
