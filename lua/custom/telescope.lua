@@ -24,8 +24,11 @@ local builtin = require "telescope.builtin"
 
 -- Find things
 vim.keymap.set("n", "<space>fd", builtin.find_files)
-vim.keymap.set("n", "<space>ft", builtin.git_files)
+-- [f]ind git files (like Ctrl + p)
+vim.keymap.set("n", "<space>fp", builtin.git_files)
+-- [f]ind [h]elp
 vim.keymap.set("n", "<space>fh", builtin.help_tags)
+-- [f]ind [g]rep
 vim.keymap.set("n", "<space>fg", builtin.live_grep)
 
 -- Current buffer search, no telescope ui
