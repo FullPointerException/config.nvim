@@ -6,4 +6,3 @@ cp -r ./after $HOME/.config/nvim
 cp -r ./colors $HOME/.config/nvim
 cp -r ./lua $HOME/.config/nvim
 cp -r ./plugin $HOME/.config/nvim
-cp -r ./scripts $HOME/.config/nvim
