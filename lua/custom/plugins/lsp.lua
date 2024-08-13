@@ -60,6 +60,13 @@ return {
         init_options = { clangdFileStatus = true },
         filetypes = { "c", "cpp" },
       },
+      -- qmlls
+      qmlls = {
+        enabled = false,
+        cmd = { "qmlls", "-b", "build/qml_modules" },
+        manual_install = true,
+        filetypes = { "qml", "qmljs" },
+      },
       -- Bash
       -- If trouble installing bashls, make sure npm is installed
       --bashls = true,
@@ -128,7 +135,7 @@ return {
         if settings.server_capabilities then
           for k, v in pairs(settings.server_capabilities) do
             if v == vim.NIL then
-              --@diagnostic disable-next-line: cast-local-type
+              ---@diagnostic disable-next-line: cast-local-type
               v = nil
             end
 
