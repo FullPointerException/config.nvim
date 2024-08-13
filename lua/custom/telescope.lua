@@ -23,13 +23,13 @@ pcall(require("telescope").load_extension, "ui-select")
 local builtin = require "telescope.builtin"
 
 -- Find things
-vim.keymap.set("n", "<space>fd", builtin.find_files)
+vim.keymap.set("n", "<space>fd", builtin.find_files, { desc = "Find files"})
 -- [f]ind git files (like Ctrl + p)
-vim.keymap.set("n", "<space>fp", builtin.git_files)
+vim.keymap.set("n", "<space>fp", builtin.git_files, { desc = "Find files in git"})
 -- [f]ind [h]elp
-vim.keymap.set("n", "<space>fh", builtin.help_tags)
+vim.keymap.set("n", "<space>fh", builtin.help_tags, { desc = "Find in help"})
 -- [f]ind [g]rep
-vim.keymap.set("n", "<space>fg", builtin.live_grep)
+vim.keymap.set("n", "<space>fg", builtin.live_grep, { desc = "Telescope grep"})
 
 -- Current buffer search, no telescope ui
 vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find)

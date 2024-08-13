@@ -35,4 +35,10 @@ cmp.setup {
       { "i", "c" }
     ),
   },
+  -- Set LuaSnip to handle the nvim-cmp snippet expansion
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
+  },
 }
