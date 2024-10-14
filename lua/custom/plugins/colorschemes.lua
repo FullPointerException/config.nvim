@@ -2,7 +2,6 @@
 -- Falses italics in hlMap.italic, hlMap.cterm.italic, and hlMap.gui.italics
 -- Only does this for fields that already exist
 local function remove_hl_italics_from_table(hlMap)
-
   if(hlMap.italic ~= nil) then
     hlMap.italic = false
   end
@@ -36,6 +35,12 @@ local function add_italics(groupName)
   vim.api.nvim_set_hl(0, groupName, hlTable)
 end
 
+local function set_fg(groupName, color)
+  local hlTable = vim.api.nvim_get_hl(0, { name = groupName })
+  hlTable.fg = color
+  vim.api.nvim_set_hl(0, groupName, hlTable)
+end
+
 return {
   {
     "catppuccin/nvim",
@@ -59,6 +64,8 @@ return {
       no_italics("DiagnosticVirtualTextInfo")
       no_italics("DiagnosticVirtualTextHint")
       no_italics("DiagnosticVirtualTextOk")
+
+      set_fg("Comment", 0x9090A7) -- 7106694
     end,
   },
   -- Not using, but here as a fallback

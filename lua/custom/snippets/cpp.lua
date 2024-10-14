@@ -26,7 +26,7 @@ ls.add_snippets("cpp", {
     t"{", nl(),
     t"\tQ_OBJECT", nl(),
     t"\tQML_ELEMENT", nl(),
-    t"\tQML_UNCREATABLE(\"Cannot create ", t"CLASSNAME", " in QML)", nl(),
+    t"\tQML_UNCREATABLE(\"Cannot create ", t"CLASSNAME", t" in QML\")", nl(),
     nl(),
     t"public:", nl(),
     t"\tenum ", t"CLASSNAME", t"Roles {", nl(),

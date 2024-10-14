@@ -1,11 +1,5 @@
 local set = vim.keymap.set
 
--- Change the split navigation to not need c-w as a leader
-set("n", "<c-h>", "<c-w><c-h>")
-set("n", "<c-j>", "<c-w><c-j>")
-set("n", "<c-k>", "<c-w><c-k>")
-set("n", "<c-l>", "<c-w><c-l>")
-
 -- Adjust split width / height
 set("n", "<M-,>", "<c-w>5<")
 set("n", "<M-.>", "<c-w>5>")
