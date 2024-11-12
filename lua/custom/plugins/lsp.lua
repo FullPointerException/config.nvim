@@ -60,6 +60,10 @@ return {
         init_options = { clangdFileStatus = true },
         filetypes = { "c", "cpp" },
       },
+      -- CMake
+      cmake = {
+        filetypes = { 'cmake' },
+      },
       -- qmlls
       qmlls = {
         enabled = false,
@@ -69,7 +73,9 @@ return {
       },
       -- Bash
       -- If trouble installing bashls, make sure npm is installed
-      --bashls = true,
+      bashls = {
+        cmd = { 'bash-language-server', 'start' },
+      },
     }
 
     local servers_to_install = vim.tbl_filter(function(key)
