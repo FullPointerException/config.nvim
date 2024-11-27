@@ -9,6 +9,9 @@ vim.opt.completeopt = {
   "noselect",
 }
 
+-- Set the max number of completion items
+vim.opt.pumheight = 20
+
 -- Skip completion menu messages
 vim.opt.shortmess:append "c"
 
@@ -17,13 +20,14 @@ lspkind.init {}
 
 local cmp = require "cmp"
 
+local per_source_max_item_count = 10
 cmp.setup {
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "path" },
-    { name = "buffer" },
-    { name = "orgmode" },
+    { name = "nvim_lsp", max_item_count = per_source_max_item_count },
+    { name = "luasnip", max_item_count = per_source_max_item_count },
+    { name = "path", max_item_count = per_source_max_item_count },
+    { name = "buffer", max_item_count = per_source_max_item_count },
+    { name = "orgmode", max_item_count = per_source_max_item_count },
   },
   mapping = {
     ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
