@@ -8,6 +8,11 @@ local i = ls.insert_node
 local t = ls.text_node
 local nl = utils.new_line
 
+-- TODO commonize
+local function noop(args, parent, user_args)
+  return args
+end
+
 ls.add_snippets("c", {
   s({trig = "switch", name = "switch", desc = "switch / case",}, {
     t"switch(", i(1, "expression", {key = "i1"}), t") {", nl(),

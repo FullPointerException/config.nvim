@@ -6,7 +6,13 @@ local utils = require("custom.snippets.common.snippets_utils")
 local s = ls.snippet
 local t = ls.text_node
 local f = ls.function_node
+local i = ls.insert_node
 local nl = utils.new_line
+
+-- TODO commonize
+local function noop(args)
+  return args[1][1]
+end
 
 -- Standard c++ stuff
 -- Qt stuff
@@ -14,6 +20,10 @@ ls.add_snippets("cpp", {
   -- TODO FINISH THIS ONE
   s({trig = "qclass", name = "Qt Class", desc = "class inheriting QObject",}, {
     t"class ", f(utils.classname), t" :public", nl(),
+  }),
+  s({trig = "qpc", name = "Q_PROPERTY CONSTANT", desc = "Q_PROPERTY for constant property",}, {
+    t"Q_PROPERTY(", i(1, "Type", {key = "i1"}), t" ", i(2, "name", {key = "i2"}), t" READ ", f(noop, {2}), t" CONSTANT);", nl(),
+    f(noop, {1}), t" ", f(noop, {2}), t"() const;", nl(),
   }),
   -- TODO make CLASSNAME be dynamic
   s({trig = "QAbstractListModel", name = "QAbstractListModel", desc = "QAbstractListModel",}, {
