@@ -121,16 +121,16 @@ return {
 
         local builtin = require "telescope.builtin"
         vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-        vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = 0 })
-        vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0 })
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
-        vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
+        vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = 0, desc = "LSP definitions", })
+        vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0, desc = "LSP references", })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0, desc = "LSP declaration", })
+        vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0, desc = "LSP type definition", })
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc = "LSP buffer hover", })
 
         -- Refactorings
-        vim.keymap.set("n", "<space>rr", vim.lsp.buf.rename, { buffer = 0 })
-        vim.keymap.set("n", "<space>ra", vim.lsp.buf.code_action, { buffer = 0 })
+        vim.keymap.set("n", "<space>rr", vim.lsp.buf.rename, { buffer = 0, desc = "LSP rename", })
+        vim.keymap.set("n", "<space>ra", vim.lsp.buf.code_action, { buffer = 0, desc = "LSP code action", })
 
         local filetype = vim.bo[bufnr].filetype
         if disable_semantic_tokens[filetype] then

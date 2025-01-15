@@ -32,13 +32,12 @@ vim.keymap.set("n", "<space>fh", builtin.help_tags, { desc = "Find in help"})
 vim.keymap.set("n", "<space>fg", builtin.live_grep, { desc = "Telescope grep"})
 
 -- Current buffer search, no telescope ui
-vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find)
+vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find, { desc = "Current buffer fuzzy find" })
 
 -- Grep the current word under the cursor
-vim.keymap.set("n", "<space>gw", builtin.grep_string)
+vim.keymap.set("n", "<space>gw", builtin.grep_string, { desc = "Grep word under cursor" })
 
 -- Find files in neovim config
 vim.keymap.set("n", "<space>en", function()
   builtin.find_files { cwd = vim.fn.stdpath "config" }
-end)
-
+end, { desc = "Find files under ~/.config/nvim"})
