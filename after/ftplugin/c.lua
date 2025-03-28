@@ -20,13 +20,13 @@ vim.keymap.set("n", "<space>fo", function ()
     local cppname = basename .. "cpp"
     local cname = basename .. "c"
     local cxxname = basename .. "cxx"
-    if (vim.fn.filereadable(ccname)) then
+    if (vim.fn.filereadable(ccname) == 1) then
       vim.cmd("e " .. ccname)
-    elseif (vim.fn.filereadable(cppname)) then
+    elseif (vim.fn.filereadable(cppname) == 1) then
       vim.cmd("e " .. cppname)
-    elseif (vim.fn.filereadable(cname)) then
+    elseif (vim.fn.filereadable(cname) == 1) then
       vim.cmd("e " .. cname)
-    elseif (vim.fn.filereadable(cxxname)) then
+    elseif (vim.fn.filereadable(cxxname) == 1) then
       vim.cmd("e " .. cxxname)
     else
       print("Could not find source file for " .. fullname)
@@ -34,9 +34,9 @@ vim.keymap.set("n", "<space>fo", function ()
   elseif(fullname:sub(-3) == ".cc") then
     local hname = fullname:sub(1, -3) .. "h"
     local hppname = fullname:sub(1, -3) .. "hpp"
-    if (vim.fn.filereadable(hname)) then
+    if (vim.fn.filereadable(hname) == 1) then
       vim.cmd("e " .. hname)
-    elseif (vim.fn.filereadable(hppname)) then
+    elseif (vim.fn.filereadable(hppname) == 1) then
       vim.cmd("e " .. hppname)
     else
       print("Could not find header file for " .. fullname)
@@ -44,9 +44,9 @@ vim.keymap.set("n", "<space>fo", function ()
   elseif(fullname:sub(-4) == ".cpp") then
     local hname = fullname:sub(1, -4) .. "h"
     local hppname = fullname:sub(1, -4) .. "hpp"
-    if (vim.fn.filereadable(hname)) then
+    if (vim.fn.filereadable(hname) == 1) then
       vim.cmd("e " .. hname)
-    elseif (vim.fn.filereadable(hppname)) then
+    elseif (vim.fn.filereadable(hppname) == 1) then
       vim.cmd("e " .. hppname)
     else
       print("Could not find header file for " .. fullname)

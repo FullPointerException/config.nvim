@@ -13,6 +13,8 @@ return {
       "nvim-telescope/telescope-ui-select.nvim", 
       -- Makes history based on input + picker + cwd
       "nvim-telescope/telescope-smart-history.nvim",
+      -- SQLite
+      "kkharji/sqlite.lua",
     },
     config = function()
       require "custom.telescope"

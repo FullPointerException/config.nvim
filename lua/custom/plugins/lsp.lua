@@ -76,6 +76,9 @@ return {
       bashls = {
         cmd = { 'bash-language-server', 'start' },
       },
+      -- Odin
+      ols = {
+      }
     }
 
     local servers_to_install = vim.tbl_filter(function(key)

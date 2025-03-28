@@ -14,16 +14,32 @@ local function noop(args)
   return args[1][1]
 end
 
+local function capitalize(args)
+  local str = args[1][1]
+  return (str:gsub("^%l", string.upper))
+end
+
 -- Standard c++ stuff
 -- Qt stuff
 ls.add_snippets("cpp", {
-  -- TODO FINISH THIS ONE
+  -- Q_PROPERTY things
   s({trig = "qclass", name = "Qt Class", desc = "class inheriting QObject",}, {
     t"class ", f(utils.classname), t" :public", nl(),
   }),
   s({trig = "qpc", name = "Q_PROPERTY CONSTANT", desc = "Q_PROPERTY for constant property",}, {
     t"Q_PROPERTY(", i(1, "Type", {key = "i1"}), t" ", i(2, "name", {key = "i2"}), t" READ ", f(noop, {2}), t" CONSTANT);", nl(),
     f(noop, {1}), t" ", f(noop, {2}), t"() const;", nl(),
+  }),
+  s({trig = "qpro", name = "Q_PROPERTY READ ONLY", desc = "Q_PROPERTY for read only property",}, {
+    t"Q_PROPERTY(", i(1, "Type", {key = "i1"}), t" ", i(2, "name", {key = "i2"}), t" READ ", f(noop, {2}), t" NOTIFY ", f(noop, {2}), t"Changed);", nl(),
+    f(noop, {1}), t" ", f(noop, {2}), t"() const;", nl(),
+    t"void ", f(noop, {2}), t"Changed();", nl(),
+  }),
+  s({trig = "qprw", name = "Q_PROPERTY READ WRITE", desc = "Q_PROPERTY for read/write property", }, {
+    t"Q_PROPERTY(", i(1, "Type", {key = "i1"}), t" ", i(2, "name", {key = "i2"}), t" READ ", f(noop, {2}), t" WRITE set", f(capitalize, {2}), t" NOTIFY ", f(noop, {2}), t"Changed);", nl(),
+    f(noop, {1}), t" ", f(noop, {2}), t"() const;", nl(),
+    t"void set", f(capitalize, {2}), t"(", f(noop, {1}), t" new", f(capitalize, {2}), t");", nl(),
+    t"void ", f(noop, {2}), t"Changed();", nl(),
   }),
   -- TODO make CLASSNAME be dynamic
   s({trig = "QAbstractListModel", name = "QAbstractListModel", desc = "QAbstractListModel",}, {
