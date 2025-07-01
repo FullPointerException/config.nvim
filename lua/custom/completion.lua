@@ -1,5 +1,6 @@
 require "custom.snippets"
 
+---@diagnostic disable-next-line: missing-fields
 vim.opt.completeopt = {
   -- Popup completions in a menu
   "menu",
@@ -20,14 +21,13 @@ lspkind.init {}
 
 local cmp = require "cmp"
 
-local per_source_max_item_count = 10
+local per_source_max_item_count = 5
 cmp.setup {
   sources = {
-    { name = "nvim_lsp", max_item_count = per_source_max_item_count },
+    { name = "nvim_lsp", max_item_count = per_source_max_item_count*4 },
     { name = "luasnip", max_item_count = per_source_max_item_count },
     { name = "path", max_item_count = per_source_max_item_count },
-    { name = "buffer", max_item_count = per_source_max_item_count },
-    { name = "orgmode", max_item_count = per_source_max_item_count },
+    { name = "buffer", group_index = 2, max_item_count = per_source_max_item_count },
   },
   mapping = {
     ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },

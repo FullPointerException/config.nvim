@@ -78,7 +78,7 @@ return {
       },
       -- Odin
       ols = {
-      }
+      },
     }
 
     local servers_to_install = vim.tbl_filter(function(key)
@@ -130,10 +130,11 @@ return {
         vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0, desc = "LSP type definition", })
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc = "LSP buffer hover", })
+        vim.keymap.set("n", "<space>hd", vim.diagnostic.open_float, { buffer = 0, desc = "LSP View Diagnostic" })
+        vim.keymap.set("n", "<space>hca", vim.lsp.buf.code_action, { buffer = 0, desc = "LSP View Code Action" })
 
         -- Refactorings
         vim.keymap.set("n", "<space>rr", vim.lsp.buf.rename, { buffer = 0, desc = "LSP rename", })
-        vim.keymap.set("n", "<space>ra", vim.lsp.buf.code_action, { buffer = 0, desc = "LSP code action", })
 
         local filetype = vim.bo[bufnr].filetype
         if disable_semantic_tokens[filetype] then

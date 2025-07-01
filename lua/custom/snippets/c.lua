@@ -33,5 +33,11 @@ ls.add_snippets("c", {
     t"\t}", nl(),
     t"}", nl(),
   }),
+  s({trig = "/**", name = "doc comment", desc = "Doxygen comment",}, {
+    t"/**", nl(),
+    t" * \\brief ", i(0), nl(),
+    t" *", nl(),
+    t" */",
+  }),
 })
 

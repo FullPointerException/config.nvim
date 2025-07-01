@@ -66,6 +66,8 @@ return {
       no_italics("DiagnosticVirtualTextOk")
 
       set_fg("Comment", 0x9090A7) -- 7106694
+
+      set_fg("LineNr", 0xA0A0A0)
     end,
   },
   -- Not using, but here as a fallback
