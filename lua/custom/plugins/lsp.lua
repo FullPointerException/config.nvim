@@ -79,6 +79,11 @@ return {
       -- Odin
       ols = {
       },
+      -- Protobuf
+      protols = {
+        filetypes = { 'proto' },
+        root_markers = { '.git' },
+      },
     }
 
     local servers_to_install = vim.tbl_filter(function(key)

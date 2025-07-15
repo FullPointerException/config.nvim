@@ -10,7 +10,7 @@ return {
         build = 'cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
       },
       -- Allows neovim core things to use the telescope picker
-      "nvim-telescope/telescope-ui-select.nvim", 
+      "nvim-telescope/telescope-ui-select.nvim",
       -- Makes history based on input + picker + cwd
       "nvim-telescope/telescope-smart-history.nvim",
       -- SQLite
