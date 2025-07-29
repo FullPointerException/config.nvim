@@ -84,6 +84,8 @@ return {
         filetypes = { 'proto' },
         root_markers = { '.git' },
       },
+      -- Rust
+      rust_analyzer = true,
     }
 
     local servers_to_install = vim.tbl_filter(function(key)
@@ -156,6 +158,10 @@ return {
 
             client.server_capabilities[k] = v
           end
+        end
+
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.inlay_hint.enable(true)
         end
       end,
     })
